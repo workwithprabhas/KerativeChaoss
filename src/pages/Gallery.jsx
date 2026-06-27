@@ -2,24 +2,24 @@ import { useEffect } from 'react'
 import { Wrap, Eyebrow } from '../components/ui.jsx'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
 
-/* Placeholder photos, swap the `src` values for your own SOCIO images.
- * `span` gives a few tiles extra height for a loose, gallery-wall feel. */
-const photos = [
-  { src: 'https://picsum.photos/seed/socio-studio/800/900', alt: 'The art studio', span: 'row-span-2' },
-  { src: 'https://picsum.photos/seed/socio-stage/800/600', alt: 'Live on the stage' },
-  { src: 'https://picsum.photos/seed/socio-coffee/800/600', alt: 'Morning coffee in the courtyard' },
-  { src: 'https://picsum.photos/seed/socio-gather/800/600', alt: 'Friends gathering' },
-  { src: 'https://picsum.photos/seed/socio-paint/800/900', alt: 'Painting together', span: 'row-span-2' },
-  { src: 'https://picsum.photos/seed/socio-poetry/800/600', alt: 'Poetry night' },
-  { src: 'https://picsum.photos/seed/socio-table/800/600', alt: "The founders' table" },
-  { src: 'https://picsum.photos/seed/socio-evening/800/600', alt: 'An evening for two' },
-  { src: 'https://picsum.photos/seed/socio-wall/800/600', alt: 'The exhibition wall' },
-]
+// load every image dropped into src/assets/imagegallery (add more anytime)
+const modules = import.meta.glob(
+  '../assets/imagegallery/*.{JPG,jpg,jpeg,JPEG,png,PNG,webp}',
+  { eager: true, query: '?url', import: 'default' }
+)
+const photos = Object.entries(modules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([path, src], i) => ({
+    src,
+    alt: `SOCIO gallery photo ${i + 1}`,
+    // give a few tiles extra height for a loose gallery-wall feel
+    span: i % 4 === 0 ? 'row-span-2' : '',
+  }))
 
 export default function Gallery() {
   useScrollReveal()
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
 
   return (
@@ -39,9 +39,7 @@ export default function Gallery() {
           {photos.map((p) => (
             <figure
               key={p.src}
-              className={`rise-x group relative m-0 overflow-hidden rounded border-[1.5px] border-ink/15 bg-paper-2 ${
-                p.span ?? ''
-              }`}
+              className={`rise-x group relative m-0 overflow-hidden rounded border-[1.5px] border-ink/15 bg-paper-2 ${p.span}`}
             >
               <img
                 src={p.src}
@@ -49,9 +47,6 @@ export default function Gallery() {
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
               />
-              <figcaption className="absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-cocoa/80 to-transparent px-4 pb-3 pt-10 text-[0.9rem] font-medium text-paper opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                {p.alt}
-              </figcaption>
             </figure>
           ))}
         </div>

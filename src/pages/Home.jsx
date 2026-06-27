@@ -15,6 +15,15 @@ const SECTION_BY_PATH = {
   '/visit': '#visit',
 }
 
+// section id -> the clean path the URL should show when it's on screen
+const PATH_BY_SECTION = [
+  { id: 'top', path: '/' },
+  { id: 'rooms', path: '/rooms' },
+  { id: 'people', path: '/who-belongs' },
+  { id: 'day', path: '/a-day-here' },
+  { id: 'visit', path: '/visit' },
+]
+
 export default function Home() {
   const location = useLocation()
   useScrollReveal()
@@ -24,13 +33,41 @@ export default function Home() {
     if (selector) {
       const el = document.querySelector(selector)
       if (el) {
-        const id = setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 60)
+        // navbar links pass state.smooth -> smooth scroll; everything else jumps
+        const behavior = location.state?.smooth ? 'smooth' : 'auto'
+        const id = setTimeout(() => el.scrollIntoView({ behavior, block: 'start' }), 60)
         return () => clearTimeout(id)
       }
     } else {
-      window.scrollTo(0, 0)
+      window.scrollTo({ top: 0, behavior: 'instant' })
     }
   }, [location])
+
+  // scroll-spy: update the URL (without a re-render) as each section passes the
+  // middle of the viewport, so scrolling reflects the right clean route
+  useEffect(() => {
+    const sections = PATH_BY_SECTION.map((s) => ({
+      ...s,
+      el: document.getElementById(s.id),
+    })).filter((s) => s.el)
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const match = sections.find((s) => s.el === e.target)
+            if (match && window.location.pathname !== match.path) {
+              window.history.replaceState(null, '', match.path)
+            }
+          }
+        })
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    )
+
+    sections.forEach((s) => io.observe(s.el))
+    return () => io.disconnect()
+  }, [])
 
   return (
     <>

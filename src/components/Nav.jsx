@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { navLogo } from '../assets/logo.js'
 
-// clean routes, each scrolls to its section on the home page (no # in the URL)
+// clean routes, each scrolls to its section on the home page (no # in the URL).
+// `smooth: true` -> smooth-scroll to the section; Gallery is a real page, so instant.
 const links = [
-  { to: '/rooms', label: 'Rooms' },
-  { to: '/who-belongs', label: 'Who belongs' },
-  { to: '/a-day-here', label: 'A day here' },
+  { to: '/rooms', label: 'Rooms', smooth: true },
+  { to: '/who-belongs', label: 'Who belongs', smooth: true },
+  { to: '/a-day-here', label: 'A day here', smooth: true },
   { to: '/gallery', label: 'Gallery' },
 ]
 
@@ -24,7 +25,7 @@ export default function Nav() {
       <div className="nav-center">
         <div className="nav-links">
           {links.map((l) => (
-            <Link key={l.to} to={l.to} onClick={close}>
+            <Link key={l.to} to={l.to} state={l.smooth ? { smooth: true } : undefined} onClick={close}>
               {l.label}
             </Link>
           ))}
@@ -33,7 +34,7 @@ export default function Nav() {
 
       {/* button, desktop */}
       <div className="nav-right">
-        <Link className="get-started-btn" to="/visit" onClick={close}>
+        <Link className="get-started-btn" to="/visit" state={{ smooth: true }} onClick={close}>
           Book a table
         </Link>
       </div>
@@ -54,7 +55,7 @@ export default function Nav() {
       {open && (
         <div className="mobile-menu">
           {links.map((l) => (
-            <Link key={l.to} to={l.to} onClick={close}>
+            <Link key={l.to} to={l.to} state={l.smooth ? { smooth: true } : undefined} onClick={close}>
               {l.label}
             </Link>
           ))}

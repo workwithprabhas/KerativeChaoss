@@ -17,7 +17,7 @@ export default function ComingSoon() {
 
   useScrollReveal()
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
 
   return (
@@ -32,18 +32,18 @@ export default function ComingSoon() {
         }}
       />
       <Wrap className="relative z-[2] text-center">
-        <Eyebrow className="rise inline-block mb-5">{title}</Eyebrow>
-        <h1 className="rise font-display italic text-[clamp(3rem,12vw,8rem)] leading-[0.95] text-ink">
-          Coming
+        <Eyebrow className="rise-x inline-block mb-5">{title}</Eyebrow>
+        <h1 className="rise-x font-display italic text-[clamp(3rem,12vw,8rem)] leading-[0.95] text-ink">
+          Stay
           <br />
-          soon
+          tuned
         </h1>
-        <p className="rise mx-auto mt-7 max-w-[40ch] text-[1.15rem] leading-[1.55] text-[#4a3d33]">
+        <p className="rise-x mx-auto mt-7 max-w-[40ch] text-[1.15rem] leading-[1.55] text-[#4a3d33]">
           We're still setting up this room. A space made just for{' '}
           <span className="font-hand text-[1.35rem] text-olive">{title.replace(/^For /, '')}</span>{' '}
           is on its way, come back soon.
         </p>
-        <div className="rise mt-9 flex flex-wrap justify-center gap-[14px]">
+        <div className="rise-x mt-9 flex flex-wrap justify-center gap-[14px]">
           <Button as={Link} to="/who-belongs" variant="solid" className="cursor-pointer">
             Back to who belongs
           </Button>

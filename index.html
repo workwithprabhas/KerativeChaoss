@@ -1,14 +1,96 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SOCIO, Not a cafe. A home.</title>
-<meta name="description" content="SOCIO isn't just a cafe. It's a second home, an art studio, a stage, a courtyard, a room for everyone who's looking for a place to belong." />
+
+<!--
+  ⚠️ REPLACE the domain below (https://www.sociocafe.in) everywhere in this file,
+  in public/sitemap.xml and public/robots.txt, with your real deployed domain.
+  Also fill in the real ADDRESS, PHONE, HOURS and SOCIAL links in the JSON-LD block.
+-->
+
+<title>SOCIO — Best Family & Kids-Friendly Cafe in Jubilee Hills, Hyderabad</title>
+<meta name="description" content="SOCIO is a cosy, family-friendly cafe near Jubilee Hills & Banjara Hills, Hyderabad — coffee, art studio, live gigs and a kids-enjoyable space. One of the best cafes near you to create, gather and belong." />
+<meta name="keywords" content="cafes near me, cafe near Jubilee Hills, cafe near Banjara Hills, best cafes in Hyderabad, best cafes near me, family cafe Hyderabad, family space cafe, kids friendly cafe, kids enjoyable cafe, art studio cafe, coffee shop Hyderabad, SOCIO cafe" />
+<meta name="author" content="SOCIO" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://www.sociocafe.in/" />
+<meta name="theme-color" content="#EFE6D5" />
+
+<!-- Local / geo signals (Jubilee Hills, Hyderabad) -->
+<meta name="geo.region" content="IN-TG" />
+<meta name="geo.placename" content="Jubilee Hills, Hyderabad" />
+<meta name="geo.position" content="17.4319;78.4073" />
+<meta name="ICBM" content="17.4319, 78.4073" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="SOCIO" />
+<meta property="og:title" content="SOCIO — Best Family & Kids-Friendly Cafe in Jubilee Hills, Hyderabad" />
+<meta property="og:description" content="A cosy, family-friendly cafe near Jubilee Hills & Banjara Hills, Hyderabad — coffee, art studio, live gigs and a kids-enjoyable space." />
+<meta property="og:url" content="https://www.sociocafe.in/" />
+<meta property="og:image" content="https://www.sociocafe.in/og-image.jpg" />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SOCIO — Best Family & Kids-Friendly Cafe in Jubilee Hills, Hyderabad" />
+<meta name="twitter:description" content="A cosy, family-friendly cafe near Jubilee Hills & Banjara Hills, Hyderabad — coffee, art studio, live gigs and a kids-enjoyable space." />
+<meta name="twitter:image" content="https://www.sociocafe.in/og-image.jpg" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Structured data: a local cafe in Hyderabad (helps Google show you for "cafes near me") -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "SOCIO",
+  "description": "A cosy, family-friendly cafe near Jubilee Hills and Banjara Hills, Hyderabad with coffee, an art studio, live gigs and a kids-enjoyable space.",
+  "image": "https://www.sociocafe.in/og-image.jpg",
+  "url": "https://www.sociocafe.in/",
+  "telephone": "+91-00000-00000",
+  "priceRange": "₹₹",
+  "servesCuisine": ["Coffee", "Cafe", "Continental", "Beverages"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Add your street address here",
+    "addressLocality": "Hyderabad",
+    "addressRegion": "Telangana",
+    "postalCode": "500033",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 17.4319,
+    "longitude": 78.4073
+  },
+  "areaServed": ["Jubilee Hills", "Banjara Hills", "Hyderabad"],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "23:00"
+    }
+  ],
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Family friendly", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Kid friendly", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Live music / gigs", "value": true }
+  ],
+  "keywords": "cafes near me, cafe near Jubilee Hills, cafe near Banjara Hills, best cafes in Hyderabad, family cafe, kids friendly cafe",
+  "sameAs": [
+    "https://www.instagram.com/your-handle",
+    "https://www.facebook.com/your-page"
+  ]
+}
+</script>
 </head>
 <body>
 <div id="root"></div>
