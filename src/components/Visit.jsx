@@ -1,9 +1,16 @@
 import { Wrap, Eyebrow, Button } from './ui.jsx'
 
+const ADDRESS =
+  'Plot No 8, Vivekananda Enclave, Door No: 8, 2-269/N/8, Rd Number 2, beside Challa Eye Hospital, Sagar Society, Banjara Hills, Hyderabad, Telangana 500034'
+const INSTAGRAM_URL = 'https://www.instagram.com/socio.hyd?igsh=ZG1xcTkzczNmb3pv'
+const MAPS_URL =
+  'https://www.google.com/maps/search/?api=1&query=' +
+  encodeURIComponent('SOCIO Banjara Hills, ' + ADDRESS)
+
 const rows = [
-  { k: 'Where', v: 'SOCIO', sub: 'Add your street & city here' },
-  { k: 'Open', v: 'Every day', sub: 'Morning till late · set your hours' },
-  { k: 'Find us', v: '@socio', sub: 'Add your Instagram / phone' },
+  { k: 'Where', v: 'SOCIO', sub: ADDRESS },
+  { k: 'Open', v: 'Every day', sub: '9 AM – 8 PM' },
+  { k: 'Find us', v: '@socio.hyd', sub: 'Follow on Instagram', href: INSTAGRAM_URL },
   { k: 'For', v: 'Gigs · events · gatherings', sub: 'Book a room for your evening' },
 ]
 
@@ -21,19 +28,21 @@ export default function Visit() {
               A day here ends with purpose, and a quiet promise that you'll be back.
             </p>
             <div className="flex gap-[14px] flex-wrap">
-              <Button href="#" variant="light">Get directions</Button>
+              <Button href={MAPS_URL} target="_blank" rel="noopener noreferrer" variant="light">
+                Get directions
+              </Button>
               <Button
-                href="#"
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="ghost"
                 className="!text-[#ECE3D2] !border-[rgba(236,227,210,0.4)] hover:!bg-[#ECE3D2] hover:!text-cocoa"
               >
                 Message us
               </Button>
             </div>
-            <p className="mt-6">
-              <span className="font-hand text-olive text-[1.15rem]">
-                psst, swap in your real address, hours &amp; links below ✎
-              </span>
+            <p className="mt-6 font-hand text-olive text-[1.15rem]">
+              Banjara Hills · open every day, 9 to 8.
             </p>
           </div>
 
@@ -43,12 +52,23 @@ export default function Visit() {
                 key={r.k}
                 className="flex justify-between gap-4 py-[15px] border-b border-[rgba(236,227,210,0.12)] last:border-b-0"
               >
-                <span className="text-[#B6A98F] text-[0.78rem] tracking-[0.14em] uppercase">
+                <span className="text-[#B6A98F] text-[0.78rem] tracking-[0.14em] uppercase shrink-0">
                   {r.k}
                 </span>
                 <span className="text-[#F0E7D6] text-right font-medium">
-                  {r.v}
-                  <small className="block text-[#9c8f78] font-normal text-[0.8rem] tracking-normal normal-case">
+                  {r.href ? (
+                    <a
+                      href={r.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-ochre no-underline hover:underline"
+                    >
+                      {r.v}
+                    </a>
+                  ) : (
+                    r.v
+                  )}
+                  <small className="block text-[#9c8f78] font-normal text-[0.8rem] tracking-normal normal-case leading-[1.5] mt-0.5">
                     {r.sub}
                   </small>
                 </span>

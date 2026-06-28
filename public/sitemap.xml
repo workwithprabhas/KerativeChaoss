@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.sociocafe.in/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.sociocafe.in/rooms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.sociocafe.in/who-belongs</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.sociocafe.in/a-day-here</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.sociocafe.in/gallery</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.sociocafe.in/visit</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.cafesocio.art/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.cafesocio.art/rooms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cafesocio.art/who-belongs</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.cafesocio.art/a-day-here</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.cafesocio.art/gallery</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.cafesocio.art/visit</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>
