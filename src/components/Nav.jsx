@@ -11,6 +11,9 @@ const links = [
   { to: '/gallery', label: 'Gallery' },
 ]
 
+// external table-booking page (opens in a new tab)
+const BOOKING_URL = 'https://www.district.in/dining/hyderabad/socio-cafe-banjara-hills'
+
 export default function Nav() {
   const [open, setOpen] = useState(false)
   const close = () => setOpen(false)
@@ -34,9 +37,15 @@ export default function Nav() {
 
       {/* button, desktop */}
       <div className="nav-right">
-        <Link className="get-started-btn" to="/visit" state={{ smooth: true }} onClick={close}>
+        <a
+          className="get-started-btn"
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={close}
+        >
           Book a table
-        </Link>
+        </a>
       </div>
 
       {/* hamburger, mobile */}
@@ -59,9 +68,15 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link className="get-started-btn" to="/visit" onClick={close}>
+          <a
+            className="get-started-btn"
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={close}
+          >
             Book a table
-          </Link>
+          </a>
         </div>
       )}
     </nav>

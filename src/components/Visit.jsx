@@ -3,9 +3,11 @@ import { Wrap, Eyebrow, Button } from './ui.jsx'
 const ADDRESS =
   'Plot No 8, Vivekananda Enclave, Door No: 8, 2-269/N/8, Rd Number 2, beside Challa Eye Hospital, Sagar Society, Banjara Hills, Hyderabad, Telangana 500034'
 const INSTAGRAM_URL = 'https://www.instagram.com/socio.hyd?igsh=ZG1xcTkzczNmb3pv'
-const MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=' +
-  encodeURIComponent('SOCIO Banjara Hills, ' + ADDRESS)
+const MAPS_URL = 'https://maps.app.goo.gl/HiFXnvjKTuLAWaUMA'
+// WhatsApp table-booking chat (+91 99597 32328) with a pre-filled message
+const WHATSAPP_URL =
+  'https://wa.me/919959732328?text=' +
+  encodeURIComponent("Hi SOCIO, I'd like to book a table.")
 
 const rows = [
   { k: 'Where', v: 'SOCIO', sub: ADDRESS },
@@ -32,7 +34,7 @@ export default function Visit() {
                 Get directions
               </Button>
               <Button
-                href={INSTAGRAM_URL}
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="ghost"
