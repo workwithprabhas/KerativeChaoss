@@ -34,9 +34,13 @@ export default function Footer() {
             ))}
           </nav>
         </div>
-        <div className="flex justify-between gap-4 flex-wrap pt-6 text-[0.84rem] text-[#8a7d68]">
-          <span>© {year} SOCIO. A second home, since 2022.</span>
+        <div className="flex justify-between items-center gap-4 flex-wrap pt-6 text-[0.84rem] text-[#8a7d68]">
+          <span>© {year} SOCIO. A second home.</span>
           <span>Made for the ones living beyond the 9-to-5.</span>
+          <span>
+            Designed &amp; developed by{' '}
+            <span className="font-medium text-ochre">Kreative Chaoss</span>
+          </span>
         </div>
       </Wrap>
     </footer>
