@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Wrap, Eyebrow, Button } from '../components/ui.jsx'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
+import { useSeo } from '../hooks/useSeo.js'
 
 // slug -> the room/person title (keep in sync with People.jsx)
 const TITLES = {
@@ -15,6 +16,12 @@ export default function ComingSoon() {
   const { slug } = useParams()
   const title = TITLES[slug] ?? 'This room'
 
+  useSeo({
+    title: `${title} — Stay tuned | SOCIO`,
+    description: 'This SOCIO room is coming soon. Stay tuned.',
+    path: `/belong/${slug ?? ''}`,
+    noindex: true,
+  })
   useScrollReveal()
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })

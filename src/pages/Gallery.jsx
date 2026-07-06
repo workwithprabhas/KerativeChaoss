@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Wrap, Eyebrow } from '../components/ui.jsx'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
+import { useSeo } from '../hooks/useSeo.js'
 
 // load every image dropped into src/assets/imagegallery (add more anytime)
 const modules = import.meta.glob(
@@ -11,13 +12,19 @@ const photos = Object.entries(modules)
   .sort(([a], [b]) => a.localeCompare(b))
   .map(([path, src], i) => ({
     src,
-    alt: `SOCIO gallery photo ${i + 1}`,
+    alt: `SOCIO Art and Cafe, Banjara Hills, Hyderabad — moment ${i + 1}`,
     // give a few tiles extra height for a loose gallery-wall feel
     span: i % 4 === 0 ? 'row-span-2' : '',
   }))
 
 export default function Gallery() {
   useScrollReveal()
+  useSeo({
+    title: 'Gallery — SOCIO Art and Cafe, Banjara Hills, Hyderabad',
+    description:
+      'A look inside SOCIO — moments from our cafe, art studio and gigs in Banjara Hills, Hyderabad.',
+    path: '/gallery',
+  })
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])

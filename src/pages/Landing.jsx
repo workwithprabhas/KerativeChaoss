@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Wrap, Eyebrow, Button } from '../components/ui.jsx'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
+import { useSeo } from '../hooks/useSeo.js'
 
 const stats = [
   { n: '120k+', l: 'cups poured' },
@@ -68,6 +69,14 @@ const Stars = () => (
 
 export default function Landing() {
   useScrollReveal()
+  // orphan/alternate page — keep it out of the index to avoid duplicate content
+  useSeo({
+    title: 'SOCIO Art and Cafe, Banjara Hills, Hyderabad',
+    description:
+      'Good coffee and a place to belong — SOCIO, a family & kids-friendly cafe and art studio in Banjara Hills, Hyderabad.',
+    path: '/landing',
+    noindex: true,
+  })
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])

@@ -6,6 +6,7 @@ import People from '../components/People.jsx'
 import Day from '../components/Day.jsx'
 import Visit from '../components/Visit.jsx'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
+import { useSeo } from '../hooks/useSeo.js'
 
 // clean route -> the section to scroll to
 const SECTION_BY_PATH = {
@@ -27,6 +28,14 @@ const PATH_BY_SECTION = [
 export default function Home() {
   const location = useLocation()
   useScrollReveal()
+  // section routes (/rooms, /who-belongs, …) are the same home page, so they all
+  // canonicalise to "/" to avoid duplicate-content issues
+  useSeo({
+    title: 'SOCIO Art and Cafe | Banjara Hills, Hyderabad',
+    description:
+      'SOCIO is a cosy, family & kids-friendly cafe in Banjara Hills, Hyderabad with coffee, an art studio, live gigs and a space to create, gather and belong.',
+    path: '/',
+  })
 
   useEffect(() => {
     const selector = SECTION_BY_PATH[location.pathname]
@@ -39,7 +48,8 @@ export default function Home() {
         return () => clearTimeout(id)
       }
     } else {
-      window.scrollTo({ top: 0, behavior: 'instant' })
+      // Home link passes state.smooth -> smooth scroll to top; otherwise jump
+      window.scrollTo({ top: 0, behavior: location.state?.smooth ? 'smooth' : 'instant' })
     }
   }, [location])
 
