@@ -5,6 +5,8 @@ import Home from './pages/Home.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Landing from './pages/Landing.jsx'
 import ComingSoon from './pages/ComingSoon.jsx'
+import Events from './pages/Events.jsx'
+import EventPhotos from './pages/EventPhotos.jsx'
 
 // Shared chrome (grain overlay, nav, footer) wraps every routed page.
 function Layout() {
@@ -33,6 +35,8 @@ export default function App() {
           <Route path="/visit" element={<Home />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/events/photos" element={<EventPhotos />} />
           <Route path="/belong/:slug" element={<ComingSoon />} />
         </Route>
       </Routes>

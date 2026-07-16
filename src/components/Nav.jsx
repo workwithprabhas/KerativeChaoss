@@ -8,6 +8,7 @@ const links = [
   { to: '/rooms', label: 'Rooms', smooth: true },
   { to: '/who-belongs', label: 'Who belongs', smooth: true },
   { to: '/a-day-here', label: 'A day here', smooth: true },
+  { to: '/events', label: 'Events' },
   { to: '/gallery', label: 'Gallery' },
 ]
 
