@@ -11,7 +11,14 @@ const WHATSAPP_URL =
 
 const rows = [
   { k: 'Where', v: 'SOCIO', sub: ADDRESS },
-  { k: 'Open', v: 'Every day', sub: '9 AM – 8 PM' },
+  {
+    k: 'Timings',
+    v: 'Open every day',
+    lines: [
+      { label: 'Art', time: '10 AM – 8 PM' },
+      { label: 'Cafe', time: '11 AM – 9 PM' },
+    ],
+  },
   { k: 'Find us', v: '@socio.hyd', sub: 'Follow on Instagram', href: INSTAGRAM_URL },
   { k: 'For', v: 'Gigs · events · gatherings', sub: 'Book a room for your evening' },
 ]
@@ -44,7 +51,7 @@ export default function Visit() {
               </Button>
             </div>
             <p className="mt-6 font-hand text-olive text-[1.15rem]">
-              Banjara Hills · open every day, 9 to 8.
+              Banjara Hills · open every day.
             </p>
           </div>
 
@@ -70,9 +77,23 @@ export default function Visit() {
                   ) : (
                     r.v
                   )}
-                  <small className="block text-[#9c8f78] font-normal text-[0.8rem] tracking-normal normal-case leading-[1.5] mt-0.5">
-                    {r.sub}
-                  </small>
+                  {r.lines && (
+                    <span className="mt-1.5 block">
+                      {r.lines.map((l) => (
+                        <span
+                          key={l.label}
+                          className="block text-[0.9rem] font-normal leading-[1.6]"
+                        >
+                          <span className="text-[#B6A98F]">{l.label}</span> {l.time}
+                        </span>
+                      ))}
+                    </span>
+                  )}
+                  {r.sub && (
+                    <small className="block text-[#9c8f78] font-normal text-[0.8rem] tracking-normal normal-case leading-[1.5] mt-0.5">
+                      {r.sub}
+                    </small>
+                  )}
                 </span>
               </div>
             ))}
