@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
 import Nav from './components/Nav.jsx'
 import Footer from './components/Footer.jsx'
+import FriendshipPopup from './components/FriendshipPopup.jsx'
 import Home from './pages/Home.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Landing from './pages/Landing.jsx'
@@ -18,6 +19,7 @@ function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <FriendshipPopup />
     </>
   )
 }
